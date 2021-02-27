@@ -10,7 +10,7 @@
           <div class="inner">
             <h3>150</h3>
 
-            <p>Pegawai</p>
+            <p>Pegawai Kelurahan</p>
           </div>
           <div class="icon">
             <i class="ion ion-bag"></i>
