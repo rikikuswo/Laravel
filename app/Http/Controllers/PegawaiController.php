@@ -4,14 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class PegawaiController extends Controller
 {
     //
     public function index()
     {
-        $pegawai = DB::table('pegawai')->get();
-        return view('pegawai.index', ['pegawai' => $pegawai]);
+        if(!Session::get('login')){
+            return redirect('login')->with('alert','Anda belum login, silahkan login terlebih dahulu');
+        }else{
+            $pegawai = DB::table('pegawai')->get();
+            return view('pegawai.index', ['pegawai' => $pegawai]);
+        }
     }
 
 

@@ -3,11 +3,20 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\Auth;
 
-Route::get('/', function () {
-    return view('dashboard');
-});
+// Route::get('/', function () {
+//     return view('dashboard');
+// });
 
+// Login
+Route::get('/', [Auth::class, 'index']);
+Route::get('/login', [Auth::class, 'login']);
+Route::post('/loginPost', [Auth::class, 'loginPost']);
+Route::get('/register', [Auth::class, 'register']);
+Route::post('/registerPost', [Auth::class, 'registerPost']);
+Route::get('/logout', [Auth::class, 'logout']);
 //route CRUD
 Route::get('/pegawai', [PegawaiController::class, 'index'])->name('pegawai.index');
 Route::get('/pegawai/add', [PegawaiController::class, 'add']);
