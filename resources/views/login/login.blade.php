@@ -1,6 +1,6 @@
 @extends('login/base')
 @section('title','Login')
-@section('container')
+@section('content')
 <div class="login-box">
     <!-- /.login-logo -->
     <div class="card card-outline card-primary">
@@ -41,6 +41,9 @@
             <div class="col-4">
               <button type="submit" class="btn btn-primary btn-block">Sign In</button>
             </div>
+            <button type="button" class="btn btn-success swalDefaultSuccess">
+                Launch Success Toast
+            </button>
             <!-- /.col -->
           </div>
         </form>
@@ -54,4 +57,6 @@
     <!-- /.card -->
 </div>
 <!-- /.login-box -->
+
 @endsection
+

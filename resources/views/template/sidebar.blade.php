@@ -14,7 +14,7 @@
           <img src="{{ url('adminlte/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{Session::get('name')}}</a>
+          <a href="/user" class="d-block">{{Session::get('name')}}</a>
         </div>
       </div>
 
