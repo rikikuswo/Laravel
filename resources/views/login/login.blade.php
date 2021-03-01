@@ -1,36 +1,57 @@
 @extends('login/base')
 @section('title','Login')
 @section('container')
-<div class="container">
-    <div class="card">
-        <article class="card-body">
-            <a href="{{url('register')}}" class="float-right btn btn-outline-primary">Sign up</a>
-            <h4 class="card-title mb-4 mt-1">Sign in</h4>
-            @if(\Session::has('alert'))
-                <div class="alert alert-danger">
-                    <div>{{Session::get('alert')}}</div>
-                </div>
-            @endif
-            @if(\Session::has('alert-success'))
-                <div class="alert alert-success">
-                    <div>{{Session::get('alert-success')}}</div>
-                </div>
-            @endif
-            <form action="{{ url('/loginPost') }}" method="post">
-                {{ csrf_field() }}
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Password"></input>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block">Login</button>
-                </div>
-            </form>
-        </article>
+<div class="login-box">
+    <!-- /.login-logo -->
+    <div class="card card-outline card-primary">
+      <div class="card-header text-center">
+        <a href="" class="h1"><b>Admin</b>LTE</a>
+      </div>
+      <div class="card-body">
+        <p class="login-box-msg">Sign in to start your session</p>
+        @if(\Session::has('alert'))
+            <div class="alert alert-danger">
+                <div>{{Session::get('alert')}}</div>
+            </div>
+        @endif
+        @if(\Session::has('alert-success'))
+            <div class="alert alert-success">
+                <div>{{Session::get('alert-success')}}</div>
+            </div>
+        @endif
+        <form action="{{ url('/loginPost') }}" method="post">
+        {{ csrf_field() }}
+          <div class="input-group mb-3">
+            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password"></input>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            </div>
+            <!-- /.col -->
+          </div>
+        </form>
+
+        <p class="mb-0">
+          <a href="{{url('register')}}" class="text-center">Register a new membership</a>
+        </p>
+      </div>
+      <!-- /.card-body -->
     </div>
+    <!-- /.card -->
 </div>
+<!-- /.login-box -->
 @endsection

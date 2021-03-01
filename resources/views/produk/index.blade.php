@@ -26,6 +26,7 @@
                 <div class="modal-body">
                     <form id="productForm" name="productForm" class="form-horizontal">
                         <input type="hidden" name="product_id" id="product_id">
+
                         <div class="form-group">
                             <label for="name" class="col-sm-2 control-label">Name</label>
                             <div class="col-sm-12">

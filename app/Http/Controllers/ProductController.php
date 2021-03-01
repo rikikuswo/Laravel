@@ -11,9 +11,9 @@ class ProductController extends Controller
 {
     public function index(Request $request)
     {
-        if(!Session::get('login')){
-            return redirect('login')->with('alert','Anda belum login, silahkan login terlebih dahulu');
-        }else{
+        if (!Session::get('login')) {
+            return redirect('login')->with('alert', 'Anda belum login, silahkan login terlebih dahulu');
+        } else {
             if ($request->ajax()) {
                 $data = Product::latest()->get();
                 return Datatables::of($data)

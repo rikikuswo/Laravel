@@ -17,6 +17,7 @@ class Product extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->text('detail');
+            $table->string('image');
             $table->timestamps();
         });
     }
