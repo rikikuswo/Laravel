@@ -1,5 +1,6 @@
 @extends('template.app')
 @section('content')
-    {{ Session::get('name') }}
-    {{ Session::get('email') }}
+    @foreach ($data as $key)
+        {{ $key['name'] }}
+    @endforeach
 @endsection

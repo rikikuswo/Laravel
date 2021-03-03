@@ -6,6 +6,7 @@ use App\Models\Auth as ModelsAuth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Http;
 
 class Auth extends Controller
 {
@@ -14,7 +15,9 @@ class Auth extends Controller
         if (!Session::get('login')) {
             return redirect('login')->with('alert', 'Anda belum login, silahkan login terlebih dahulu');
         } else {
-            return view('dashboard');
+            $response = Http::get('https://api.kawalcorona.com/indonesia');
+            $data = $response->json();
+            return view('dashboard', compact('data'));
         }
     }
     public function login()
@@ -31,6 +34,7 @@ class Auth extends Controller
                 Session::put('name', $data->name);
                 Session::put('email', $data->email);
                 Session::put('login', TRUE);
+
                 return redirect('/');
             } else {
                 return redirect('login')->with('alert', 'Email atau Password anda salah!');

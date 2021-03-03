@@ -11,9 +11,9 @@ class PegawaiController extends Controller
     //
     public function index()
     {
-        if(!Session::get('login')){
-            return redirect('login')->with('alert','Anda belum login, silahkan login terlebih dahulu');
-        }else{
+        if (!Session::get('login')) {
+            return redirect('login')->with('alert', 'Anda belum login, silahkan login terlebih dahulu');
+        } else {
             $pegawai = DB::table('pegawai')->get();
             return view('pegawai.index', ['pegawai' => $pegawai]);
         }
