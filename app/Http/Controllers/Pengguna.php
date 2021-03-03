@@ -9,7 +9,7 @@ class Pengguna extends Controller
 {
     public function index()
     {
-        $response = Http::get('https://api.kawalcorona.com/indonesia');
+        $response = Http::get('https://dekontaminasi.com/api/id/covid19/hospitals');
         $data = $response->json();
         return view('pengguna.index', compact('data'));
     }
